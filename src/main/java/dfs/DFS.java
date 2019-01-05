@@ -1,4 +1,4 @@
-package DFS;
+package dfs;
 
 import java.util.List;
 import java.util.Stack;

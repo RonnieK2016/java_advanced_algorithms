@@ -1,4 +1,4 @@
-package DFS;
+package dfs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ public class Vertex {
     private int id;
     private List<Vertex> neighbours;
     private boolean visited;
+    private boolean beingVisited;
 
     public Vertex(int id) {
         this.id = id;
@@ -31,5 +32,13 @@ public class Vertex {
 
     public int getId() {
         return id;
+    }
+
+    public boolean isBeingVisited() {
+        return beingVisited;
+    }
+
+    public void setBeingVisited(boolean beingVisited) {
+        this.beingVisited = beingVisited;
     }
 }

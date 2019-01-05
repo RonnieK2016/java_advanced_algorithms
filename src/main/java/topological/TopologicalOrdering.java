@@ -1,6 +1,6 @@
 package topological;
 
-import DFS.Vertex;
+import dfs.Vertex;
 
 import java.util.Stack;
 
