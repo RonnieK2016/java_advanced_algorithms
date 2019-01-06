@@ -47,7 +47,6 @@ public class BellmanFord {
         }
 
         if(negativeCycle()) {
-            System.out.println("Negative cycle detected");
             return;
         }
 
@@ -65,6 +64,22 @@ public class BellmanFord {
             Vertex targetVertex = edge.getTargetVertex();
             double newDistance = startVertex.getMinDistance() + edge.getWeight();
             if(newDistance < targetVertex.getMinDistance()) {
+
+                System.out.println("Negative cycle detected! Printing it... ");
+
+                List<Vertex> path = new ArrayList<>();
+
+                Vertex vertex = startVertex;
+
+                while(!vertex.equals(targetVertex)) {
+                    path.add(vertex);
+                    vertex = vertex.getPredecessor();
+                }
+
+                path.add(targetVertex);
+
+                System.out.println(path);
+
                 return true;
             }
         }
