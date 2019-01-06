@@ -19,7 +19,11 @@ public class BellmanFord {
 
     public void compute(Vertex startVertex, Vertex targetVertex) {
         startVertex.setMinDistance(0);
+
         for(int i = 0; i < (vertices.size() - 1); i++) {
+
+            boolean wasChanged = false;
+
             for(Edge edge : edges) {
                 Vertex s = edge.getStartVertex();
 
@@ -32,7 +36,13 @@ public class BellmanFord {
                 if(newDistance < t.getMinDistance()) {
                     t.setMinDistance(newDistance);
                     t.setPredecessor(s);
+                    wasChanged = true;
                 }
+            }
+
+            if(!wasChanged) {
+                System.out.println("There was no changes to the graph. Exiting at " + i + " iteration ");
+                break;
             }
         }
 
